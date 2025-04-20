@@ -42,6 +42,22 @@ public class main {
                 System.out.println("Informe a data do emprestimo: (AAAA-MM-DD)"); 
                 String dataEmprestimoVar = in.nextLine();
                 LocalDate dataEmprestimo = LocalDate.parse(dataEmprestimoVar);
+
+                Emprestimo emprestimo = new Emprestimo(nomeCliente, emailCliente, enderecoCliente, nomeLivroEmprestado, dataEmprestimo);
+
+            case 3:
+                System.out.println("Informe o nome do cliente: ");
+                String nomeClienteDevolucao = in.nextLine();
+                System.out.println("Informe o nome do livro que foi devolvido: ");
+                String livroDevolucao = in.nextLine();
+                System.out.println("Informe a data que o livro foi emprestado: (AAAA-MM-DD)");
+                String dataEmprestimoDevVar = in.nextLine(); //se atente a essas linhas, caso de erro aqui, pode ser pq elas sobrescreveram as variaveis de cima
+                LocalDate dataEmprestimoForDev = LocalDate.parse(dataEmprestimoDevVar);
+                System.out.println("Informe a data que foi feita a devolução: (AAAA-MM-DD)");
+                String dataDevolucaoVar = in.nextLine();
+                LocalDate dataDevolucao = LocalDate.parse(dataDevolucaoVar);
+
+                Devolucao devolucao = new Devolucao(nomeClienteDevolucao, livroDevolucao, dataEmprestimoForDev, dataDevolucao);
         }
     }
 }
