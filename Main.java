@@ -10,6 +10,8 @@ public class Main {
         List<Adicionar> livros = new ArrayList<>();
         int respUser;
 
+        Adicionar addBook = new Adicionar(); 
+
         System.out.println("Bem-Vindo ao nosso sistema Bibliotecario!");
         System.out.println("Aqui você poderá gerenciar sua biblioteca, adicionando, removendo, emprestando, devolvendo e listando livros disponíveis!");
 
@@ -20,22 +22,25 @@ public class Main {
             switch(respUser){
                 case 1:
                     System.out.println("Informe o nome do livro: ");
-                    String nomeLivro = in.nextLine();
+                    addBook.setNomeLivro(in.nextLine());
+
                     System.out.println("Informe o ano da publicação: ");
                     int anoPubli = in.nextInt(); in.nextLine();
                     Year anoPublicacao = Year.of(anoPubli);
+                    addBook.setAnoPublicacao(anoPublicacao);
+
                     System.out.println("Informe o nome do autor: ");
-                    String nomeAutor = in.nextLine();
+                    addBook.setNomeAutor(in.nextLine());
+
                     System.out.println("Informe o gênero: ");
-                    String genero = in.nextLine();
-            
-                    Adicionar addBook = new Adicionar(nomeLivro, anoPublicacao, nomeAutor, genero);
+                    addBook.setGenero(in.nextLine());
+
                     livros.add(addBook); //adicionamos o objeto da classe Adicionar na coleção Livros
 
-                    if(nomeLivro.isEmpty() == true || nomeAutor.isEmpty() == true || genero.isEmpty() == true){
+                    if(addBook.getNomeLivro().isEmpty() == true || addBook.getNomeAutor().isEmpty() == true || addBook.getGenero().isEmpty() == true){
                         System.out.println("Não foi possível cadastrar o livro. Tente novamente.");
                     } else{
-                        System.out.println("O livro " + nomeLivro + " foi cadastrado com sucesso no sistema!");
+                        System.out.println("O livro " + addBook.getNomeLivro() + " foi cadastrado com sucesso no sistema!");
                     }
 
                     break;
@@ -47,13 +52,19 @@ public class Main {
                     String emailCliente = in.nextLine();
                     System.out.println("Informe o endereço do cliente: ");
                     String enderecoCliente = in.nextLine();
-                    System.out.println("Informe o nome do livro que foi emprestado: ");
+                    System.out.println("Informe o nome do livro que será emprestado: ");
                     String nomeLivroEmprestado = in.nextLine();   
                     System.out.println("Informe a data do emprestimo: (AAAA-MM-DD)"); 
                     String dataEmprestimoVar = in.nextLine();
                     LocalDate dataEmprestimo = LocalDate.parse(dataEmprestimoVar);
 
                     Emprestimo emprestimo = new Emprestimo(nomeCliente, emailCliente, enderecoCliente, nomeLivroEmprestado, dataEmprestimo);
+
+                    if(nomeLivroEmprestado.contains(addBook.getNomeLivro())){
+                        emprestimo.liberacaoDoLivro();
+                    } else {
+                        emprestimo.negacaoDoLivro();
+                    }
 
                     break;
 

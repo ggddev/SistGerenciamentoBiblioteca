@@ -6,10 +6,42 @@ public class Adicionar {
     private String nomeAutor;
     private String genero;
 
-    public Adicionar(String nomeLivro, Year anoPublic, String nomeAutor, String genero){
+    public Adicionar(){
         this.nomeLivro = nomeLivro;
         this.anoPublic = anoPublic;
         this.nomeAutor = nomeAutor;
+        this.genero = genero;
+    }
+
+    public String getNomeLivro(){
+        return nomeLivro;
+    }
+
+    public void setNomeLivro(String nomeLivro){
+        this.nomeLivro = nomeLivro;
+    }
+
+    public Year getAnoPublicacao(){
+        return anoPublic;
+    }
+
+    public void setAnoPublicacao(Year anoPublic){
+        this.anoPublic = anoPublic;
+    }
+
+    public String getNomeAutor(){
+        return nomeAutor;
+    }
+
+    public void setNomeAutor(String nomeAutor){
+        this.nomeAutor = nomeAutor;
+    }
+
+    public String getGenero(){
+        return genero;
+    } 
+
+    public void setGenero(String genero){
         this.genero = genero;
     }
 }
