@@ -62,8 +62,6 @@ public class Main {
 
                     System.out.println(emprestimo.verificarLivro(emprestimo.getNomeLivro(), livros, livroEmprestado));
 
-                    emprestimo.listaLivrosEmprestados();
-
                     break;//encerrada
 
                 case 3:
@@ -80,13 +78,13 @@ public class Main {
 
                     Devolucao devolucao = new Devolucao(nomeClienteDevolucao, livroDevolucao, dataEmprestimoForDev, dataDevolucao);
 
+                    devolucao.devolverLivros(livroDevolucao, emprestimo);
+
                     break;
 
                 case 4:
-                    System.out.println("\n~~~~ Lista dos Livros Disponíveis ~~~~\n");
-                    for(Adicionar a : livros){
-                        a.retornarLivros();
-                    }
+                    System.out.println("\n---- Lista de livros disponíveis ----");
+                    
                     break;
             }
         } while(respUser == 1 || respUser == 2 || respUser == 3 || respUser == 4);

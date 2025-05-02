@@ -1,8 +1,8 @@
 package GerenciamentoBiblioteca.SistGerenciamentoBiblioteca;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 public class Devolucao {
     private String nomeCliente;
     private String livroDevolucao;
@@ -20,6 +20,9 @@ public class Devolucao {
     public void devolverLivros(String livroDevolucao, Emprestimo emprestimo){
         if(livroDevolucao.equals(emprestimo.getNomeLivro())){
             emprestimo.devolver(livroDevolucao);
+            System.out.println("O livro " + livroDevolucao + " foi devolvido com sucesso!");
+        } else{
+            System.out.println("Este livro não consta na lista de emprestimos.");
         }
     }
 }

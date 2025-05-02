@@ -10,7 +10,7 @@ public class Emprestimo{
     private String endereco;
     private String nomeLivro;
     private LocalDate dataEmprestimo;
-    private List<String> livrosEmprestados = new ArrayList<>(); 
+    protected List<String> livrosEmprestados = new ArrayList<>(); 
 
     public Emprestimo(){
         this.nome = nome;
@@ -81,7 +81,7 @@ public class Emprestimo{
 
     public void listaLivrosEmprestados(){
         if(livrosEmprestados.isEmpty()){
-            System.out.println("Nenhum livro foi emprestado ainda.");
+            System.out.println("Ainda não há livros emprestados.");
         } else{
             System.out.println("---- Lista de livros emprestados ----");
             for(String s : livrosEmprestados){
