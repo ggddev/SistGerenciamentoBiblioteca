@@ -16,7 +16,7 @@ public class Main {
         System.out.println("Aqui você poderá gerenciar sua biblioteca, adicionando, removendo, emprestando, devolvendo e listando livros disponíveis!");
 
         do{
-            System.out.println("\nInforme o que você deseja fazer (1)Adicionar um novo livro | (2)Emprestar um livro | (3)Devolver um livro | (4)Listar livros disponíveis | (5)Sair");
+            System.out.println("\nInforme o que você deseja fazer (1)Adicionar um novo livro | (2)Emprestar um livro | (3)Devolver um livro | (4)Listar livros que a biblioteca possuí | (5)Sair");
             respUser = in.nextInt(); in.nextLine();
 
             switch(respUser){
@@ -80,11 +80,13 @@ public class Main {
 
                     devolucao.devolverLivros(livroDevolucao, emprestimo);
 
-                    break;
+                    break; //encerradas
 
                 case 4:
-                    System.out.println("\n---- Lista de livros disponíveis ----");
-                    
+                    System.out.println("\n---- Lista de livros da biblioteca ----");
+                    for(Adicionar a : livros){
+                        a.retornarLivros();
+                    }
                     break;
             }
         } while(respUser == 1 || respUser == 2 || respUser == 3 || respUser == 4);
