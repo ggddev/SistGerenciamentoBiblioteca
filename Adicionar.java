@@ -44,4 +44,11 @@ public class Adicionar {
     public void setGenero(String genero){
         this.genero = genero;
     }
+
+    public void retornarLivros(){
+        System.out.println("Título: " + getNomeLivro());
+        System.out.println("Autor: " + getNomeAutor());
+        System.out.println("Gênero: " + getGenero());
+        System.out.println("Ano da publicação: " + getAnoPublicacao());
+    }
 }
