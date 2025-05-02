@@ -10,7 +10,7 @@ public class Main {
         List<Adicionar> livros = new ArrayList<>();
         List<String> livroEmprestado = new ArrayList<>();
         int respUser;
-        Adicionar addBook = new Adicionar();
+        Emprestimo emprestimo = new Emprestimo();
 
         System.out.println("Bem-Vindo ao nosso sistema Bibliotecario!");
         System.out.println("Aqui você poderá gerenciar sua biblioteca, adicionando, removendo, emprestando, devolvendo e listando livros disponíveis!");
@@ -21,6 +21,8 @@ public class Main {
 
             switch(respUser){
                 case 1:
+                Adicionar addBook = new Adicionar();
+                
                 System.out.println("Informe o nome do livro: ");
                 addBook.setNomeLivro(in.nextLine());
 
@@ -44,26 +46,27 @@ public class Main {
                         System.out.println("O livro " + addBook.getNomeLivro() + " foi cadastrado com sucesso no sistema!");
                     }
 
-                    break;
+                    break;//encerrada
 
                 case 2:
                     System.out.println("Informe o nome do cliente: ");
-                    String nomeCliente = in.nextLine();
+                    emprestimo.setNome(in.nextLine());
                     System.out.println("Informe o e-mail do cliente: ");
-                    String emailCliente = in.nextLine();
+                    emprestimo.setEmail(in.nextLine());
                     System.out.println("Informe o endereço do cliente: ");
-                    String enderecoCliente = in.nextLine();
+                    emprestimo.setEndereco(in.nextLine());
                     System.out.println("Informe o nome do livro que será emprestado: ");
-                    String nomeLivroDesejado = in.nextLine();
+                    emprestimo.setNomeLivro(in.nextLine());
                     System.out.println("Informe a data do emprestimo: (AAAA-MM-DD)"); 
                     String dataEmprestimoVar = in.nextLine();
                     LocalDate dataEmprestimo = LocalDate.parse(dataEmprestimoVar);
+                    emprestimo.setDataEmprestimo(dataEmprestimo);
 
-                    Emprestimo emprestimo = new Emprestimo(nomeCliente, emailCliente, enderecoCliente, nomeLivroDesejado, dataEmprestimo);
+                    System.out.println(emprestimo.verificarLivro(emprestimo.getNomeLivro(), livros, livroEmprestado));
 
-                    System.out.println(emprestimo.verificarLivro(nomeLivroDesejado, addBook));
+                    emprestimo.listaLivrosEmprestados();
 
-                    break;
+                    break;//encerrada
 
                 case 3:
                     System.out.println("Informe o nome do cliente: ");
@@ -71,7 +74,7 @@ public class Main {
                     System.out.println("Informe o nome do livro que foi devolvido: ");
                     String livroDevolucao = in.nextLine();
                     System.out.println("Informe a data que o livro foi emprestado: (AAAA-MM-DD)");
-                    String dataEmprestimoDevVar = in.nextLine(); //se atente a essas linhas, caso de erro aqui, pode ser pq elas sobrescreveram as variaveis de cima
+                    String dataEmprestimoDevVar = in.nextLine();
                     LocalDate dataEmprestimoForDev = LocalDate.parse(dataEmprestimoDevVar);
                     System.out.println("Informe a data que foi feita a devolução: (AAAA-MM-DD)");
                     String dataDevolucaoVar = in.nextLine();

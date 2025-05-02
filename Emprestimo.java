@@ -10,9 +10,9 @@ public class Emprestimo{
     private String endereco;
     private String nomeLivro;
     private LocalDate dataEmprestimo;
-    private List<Adicionar> livrosEmprestados = new ArrayList<>(); 
+    private List<String> livrosEmprestados = new ArrayList<>(); 
 
-    public Emprestimo(String nome, String email, String endereco, String nomeLivro, LocalDate dataEmprestimo){
+    public Emprestimo(){
         this.nome = nome;
         this.email = email;
         this.endereco = endereco;
@@ -21,23 +21,68 @@ public class Emprestimo{
         this.livrosEmprestados = livrosEmprestados;
     }
 
-    public void liberarLivro(Adicionar add){
-        livrosEmprestados.add(add);
+    public String getNome(){
+        return nome;
     }
 
-    public void liberacaoDoLivro(){
-        System.out.println("O livro " + nomeLivro + " está disponível no sistema!");
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
-    public String verificarLivro(String nomeLivro, Adicionar adicionar){
-        if(nomeLivro.equalsIgnoreCase(adicionar.getNomeLivro())){
-            return "O livro " + nomeLivro + " está disponível no sistema!";
-        }else{
-            return "O livro " + nomeLivro + " não está disponível no momento";
-        }
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getEndereco(){
+        return endereco;
+    }
+
+    public void setEndereco(String endereco){
+        this.endereco = endereco;
     }
 
     public String getNomeLivro(){
         return nomeLivro;
     }
+
+    public void setNomeLivro(String nomeLivro){
+        this.nomeLivro = nomeLivro;
+    }
+
+    public LocalDate getDataEmprestimo(){
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo){
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public void devolver(String nomeLivro){
+        livrosEmprestados.remove(nomeLivro);
+    }
+
+    public String verificarLivro(String nomeLivro, List<Adicionar> livros, List<String> livrosEmprestados){
+        for(Adicionar livro : livros){
+            if(livro.getNomeLivro().equalsIgnoreCase(nomeLivro)){
+                if(livrosEmprestados.contains(livro.getNomeLivro())){
+                    return "O livro " + nomeLivro + " não está disponível no momento";
+                } else{
+                    livrosEmprestados.add(livro.getNomeLivro());
+                    return "O livro " + nomeLivro + " foi emprestado com sucesso.";
+                }
+            }
+        }
+        return "O livro " + nomeLivro + " não está cadastrado no sistema."; 
+    }
+
+    public void listaLivrosEmprestados(){
+        for(String s : livrosEmprestados){
+            System.out.println(livrosEmprestados);
+        }
+    }
+
 }
