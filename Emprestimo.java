@@ -80,8 +80,13 @@ public class Emprestimo{
     }
 
     public void listaLivrosEmprestados(){
-        for(String s : livrosEmprestados){
-            System.out.println(livrosEmprestados);
+        if(livrosEmprestados.isEmpty()){
+            System.out.println("Nenhum livro foi emprestado ainda.");
+        } else{
+            System.out.println("---- Lista de livros emprestados ----");
+            for(String s : livrosEmprestados){
+                System.out.println("- " + s);
+            }
         }
     }
 

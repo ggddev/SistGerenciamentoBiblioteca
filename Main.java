@@ -21,23 +21,21 @@ public class Main {
 
             switch(respUser){
                 case 1:
-                Adicionar addBook = new Adicionar();
-                
-                System.out.println("Informe o nome do livro: ");
-                addBook.setNomeLivro(in.nextLine());
+                    Adicionar addBook = new Adicionar();
 
-                System.out.println("Informe o ano da publicação: ");
-                int anoPubli = in.nextInt(); in.nextLine();
-                Year anoPublicacao = Year.of(anoPubli);
-                addBook.setAnoPublicacao(anoPublicacao);
+                    System.out.println("Informe o nome do livro: ");
+                    addBook.setNomeLivro(in.nextLine());
 
-                System.out.println("Informe o nome do autor: ");
-                addBook.setNomeAutor(in.nextLine());
+                    System.out.println("Informe o ano da publicação: ");
+                    int anoPubli = in.nextInt(); in.nextLine();
+                    Year anoPublicacao = Year.of(anoPubli);
+                    addBook.setAnoPublicacao(anoPublicacao);
 
-                System.out.println("Informe o gênero: ");
-                addBook.setGenero(in.nextLine());
+                    System.out.println("Informe o nome do autor: ");
+                    addBook.setNomeAutor(in.nextLine());
 
-                   // Adicionar addBook = new Adicionar(nomeLivro, anoPublicacao, nomeAutor, genero);//criamos o objeto da classe Adicionar, e optei por criar variaveis pq elas podem ser adicionadas ao objeto e o objeto a uma lista sem risco de sobrescrição 
+                    System.out.println("Informe o gênero: ");
+                    addBook.setGenero(in.nextLine());
                     livros.add(addBook);
 
                     if(addBook.getNomeLivro().isEmpty() == true || addBook.getNomeAutor().isEmpty() == true || addBook.getGenero().isEmpty() == true){
