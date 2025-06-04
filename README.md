@@ -14,26 +14,26 @@ simulando as funcionalidades básicas de uma biblioteca tradicional.
 
     O sistema é dividido em quatro classes principais:
 
-    _Adicionar.java_
+    Adicionar.java
       Responsável por armazenar e exibir as informações dos livros cadastrados.
 
-    _Emprestimo.java_
+    Emprestimo.java
       Gerencia os dados do cliente e os livros emprestados. Possui métodos para:
       - verificar a disponibilidade do livro
       - emprestar o livro
       - devolver o livro
       - listar os livros emprestados
 
-    _Devolucao.java_
+    Devolucao.java
       Gerencia a devolução de livros e valida se o livro devolvido estava de fato emprestado.
 
-    _Main.java_
+    Main.java
       Classe principal que oferece um menu interativo no terminal para o usuário operar o sistema.
 
   ### Como Executar
     1. Certifique-se de ter o Java JDK 17 (ou superior) instalado.
     2. Clone ou baixe o repositório.
-    3. Compile os arquivos *java*:
+    3. Compile os arquivos java:
        javac GerenciamentoBiblioteca/SistGerenciamentoBiblioteca/*.java
     4. Execute o programa
        java GerenciamentoBiblioteca.SistGerenciamentoBiblioteca.Main
@@ -41,10 +41,10 @@ simulando as funcionalidades básicas de uma biblioteca tradicional.
   ### Exemplo de Uso
     Bem-Vindo ao nosso sistema Bibliotecario!
     Informe o que você deseja fazer:
-    (1) Adicionar um novo _livro_
-    (2) Emprestar um _livro_
-    (3) Devolver um _livro_
-    (4) Listar _livros_
+    (1) Adicionar um novo livro
+    (2) Emprestar um livro
+    (3) Devolver um livro
+    (4) Listar livros
     (5) Sair
 
   ## Possíveis Melhorias
@@ -56,8 +56,8 @@ simulando as funcionalidades básicas de uma biblioteca tradicional.
  
   ## Tecnologias Utilizadas
     - Java 17
-    - _java.time_ para manipulação de datas
-    - _java.util.List_ e _ArrayList_
+    - java.time para manipulação de datas
+    - java.util.List e ArrayList
    
   ### Organização de Pacotes
     GerenciamentoBiblioteca/
@@ -68,4 +68,4 @@ simulando as funcionalidades básicas de uma biblioteca tradicional.
       └── Main.java
 
   ### Autor
-    *Desenvolvido por ggdDev*
+    Desenvolvido por ggdDev
